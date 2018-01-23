@@ -12,11 +12,14 @@
 </template>
 
 <script>
+/* eslint-disable */
+/* import 'bootstrap' */
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
 import HelloWorld from './components/HelloWorld'
 import Greeting from './components/Greeting'
 import Header from './components/Header'
-/* import 'bootstrap' */
-import 'bootstrap/dist/css/bootstrap.css'
+
 
 export default {
   name: 'App',
@@ -33,11 +36,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 55px;
+  margin-top: 10px;
+  margin-left: 25px;
+  margin-right: 25px;
 }
 
-body{
-  /* background-color: rgb(167, 156, 156) */
-}
-
+#app {
+    padding: 5px;
+  }
+  
+  #input {
+    width: 120px;
+  }
+  
+  body {
+    background-color: antiquewhite;
+  }
 </style>
