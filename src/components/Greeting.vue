@@ -1,8 +1,11 @@
 
 <template>
+  <!-- eslint-disable -->
    <div id="treinamento">
       <h1 v-once>{{ title }}</h1>
-        <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}</p>
+        <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
+          - <span v-on:mousemove.stop="">ZONA MORTA</span>
+        </p>
         <div class="row">
             <div class="col-md-3">
                 <label for="input1">Numero1</label>
@@ -30,6 +33,8 @@
         <button v-on:click="increase">Click me</button>
         <p>{{ counter }}</p>
         <p>{{ title }}</p>
+        <label for="keyModifier">Exemplo de um key modifier</label>
+        <input id="keyModifier" type="text" class="form-control" v-on:keyup.enter="alertMe">
    </div>
 </template>
 
@@ -51,7 +56,11 @@ export default {
   },
 
   methods: {
-     updateCoordinates: function(e){
+        alertMe(){
+          alert("Isso foi um alerta.")
+        },
+
+        updateCoordinates: function(e){
             this.x = e.clientX
             this.y = e.clientY
         },
