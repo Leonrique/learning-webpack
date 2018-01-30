@@ -1,6 +1,6 @@
 <template>
     <div id="OtherStuff">
-      <h1>Eu sou uma segunda página</h1>
+      <h1>I'm another page - using vue-router</h1>
     </div>
 </template>
 
