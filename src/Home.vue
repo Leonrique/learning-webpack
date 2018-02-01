@@ -3,7 +3,7 @@
       <h1>Home</h1>
       <Header/>
 
-      <!-- <img src="./assets/logo.jpg"> -->
+      <img src="./assets/logo.png">
 
       <HelloWorld/>
       <br>
