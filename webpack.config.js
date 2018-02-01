@@ -1,10 +1,10 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: './src/js/main.js',
+  entry: './src/main.js',
 
   output: {
-    path: './dist',
+    path: __dirname + '/',
     filename: 'bundle.js'
   },
 
@@ -13,10 +13,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-            presets: ['es2015']
-        }
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader'
       },
       {
         test: /\.less$/,
@@ -25,25 +26,29 @@ module.exports = {
       {
         test: /\.(jpg|png|gif)$/,
         include: /img/,
-        loader: 'url'
+        loader: 'file-loader',
       },
+      {
+        test: /\.css$/,
+        loader:'css-loader'
+      }
     ]
   },
-
+  
   plugins: [
     new CopyWebpackPlugin([
-      { from: './src/index.html' }
+      { from: './index.html' }
     ]),
-    new CopyWebpackPlugin([
+    /* new CopyWebpackPlugin([
       { from: './src/vendors/phaser.min.js' }
-    ]),
+    ]), */
     new CopyWebpackPlugin([
       { from: './src/assets', to: 'assets' }
     ])
   ],
 
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx', '.css']
   },
 
   devServer: {

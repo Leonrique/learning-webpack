@@ -3,7 +3,7 @@
       <h1>Home</h1>
       <Header/>
 
-      <img src="./assets/logo.png">
+      <!-- <img src="./assets/logo.jpg"> -->
 
       <HelloWorld/>
       <br>
@@ -17,9 +17,9 @@
 /* import 'bootstrap' */
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import HelloWorld from "./components/HelloWorld";
-import Greeting from "./components/Greeting";
-import Header from "./components/Header";
+import HelloWorld from "./components/HelloWorld.vue";
+import Greeting from "./components/Greeting.vue";
+import Header from "./components/Header.vue";
 
 export default {
   name: "Home",

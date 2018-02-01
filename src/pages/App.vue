@@ -2,7 +2,7 @@
   <div id="app">
     <Header/>
 
-    <img src="src/assets/logo.png">
+    <!-- <img src="src/assets/logo.jpg"> -->
 
     <HelloWorld/>
     <br>
