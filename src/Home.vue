@@ -7,7 +7,6 @@
 
       <HelloWorld/>
       <br>
-
       <Greeting/>
     </div>
 </template>
@@ -23,6 +22,11 @@ import Header from "./components/Header.vue";
 
 export default {
   name: "Home",
+  data: function(){
+    return {
+      showModal: false
+    }
+  },
   components: {
     HelloWorld,
     Greeting,
@@ -31,7 +35,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #home {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,9 +53,5 @@ export default {
 
 #input {
   width: 120px;
-}
-
-body {
-  background-color: antiquewhite;
 }
 </style>

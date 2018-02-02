@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #greeting {
   color: bisque
 }

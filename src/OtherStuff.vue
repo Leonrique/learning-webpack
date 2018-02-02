@@ -85,13 +85,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #OtherStuff {
   text-align: center;
-}
-
-body {
-  font-family: Helvetica, Arial, sans-serif;
 }
 
 ul {
