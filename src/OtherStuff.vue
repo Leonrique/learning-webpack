@@ -23,10 +23,23 @@
 </template>
 <script>
 /* eslint-disable */
-import {db, usersRef} from './firebase';
+/* import {db, usersRef} from './firebase'; */
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+import firebase from 'firebase';
+
+var config = {
+  apiKey: "AIzaSyDE15LTniiNFiEAAIhcXCZw3kqmULI6zVU",
+    authDomain: "fir-vue-dad27.firebaseapp.com",
+    databaseURL: "https://fir-vue-dad27.firebaseio.com"
+}
+
+const firebaseApp  = firebase.initializeApp(config);
+
+export const db = firebaseApp.database();
+export const usersRef = firebaseApp.database().ref('users');
 
 export default {
   name: "OtherStuff",

@@ -1,5 +1,5 @@
 /* eslint-disable */
-import firebase from 'firebase';
+import bancofire from 'firebase';
 
 var config = {
   apiKey: "AIzaSyDE15LTniiNFiEAAIhcXCZw3kqmULI6zVU",
@@ -7,7 +7,7 @@ var config = {
     databaseURL: "https://fir-vue-dad27.firebaseio.com"
 }
 
-const firebaseApp  = firebase.initializeApp(config);
+const firebaseApp  = bancofire.initializeApp(config);
 
 export const db = firebaseApp.database();
 export const usersRef = firebaseApp.database().ref('users');
