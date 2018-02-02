@@ -5,10 +5,10 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 import Vue from "vue";
 import VueRouter from "vue-router";
+import VueFire from "vuefire";
 import Main from "./Main.vue";
 import Home from "./Home.vue";
 import OtherStuff from "./OtherStuff.vue";
-import VueFire from "vuefire"
 
 Vue.use(VueRouter);
 Vue.use(VueFire);
