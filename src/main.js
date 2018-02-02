@@ -5,7 +5,7 @@
 /* import 'bootstrap' */
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import {db, usersRef} from './firebase';
+import {db, usersRef} from 'firebase';
 /* import './firebase'; */
 import Vue from "vue";
 import VueRouter from "vue-router";
