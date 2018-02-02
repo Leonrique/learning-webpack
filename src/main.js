@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.js";
 import Vue from "vue";
 import VueRouter from "vue-router";
 //import VueFire from "vuefire"
-var VueFire = require('vuefire')
+//var VueFire = require('vuefire')
 import Main from "./Main.vue"
 import Home from "./Home.vue";
 import OtherStuff from "./OtherStuff.vue";
