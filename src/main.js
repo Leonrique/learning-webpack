@@ -3,7 +3,6 @@
 /* eslint-disable */
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import {db, usersRef} from './firebase.js';
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Main from "./Main.vue";
