@@ -12,7 +12,7 @@ import Home from "./Home.vue";
 import OtherStuff from "./OtherStuff.vue";
 
 Vue.use(VueRouter);
-Vue.use(VueFire);
+//Vue.use(VueFire);
 Vue.config.productionTip = false;
 
 const routes = [
