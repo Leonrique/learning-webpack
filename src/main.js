@@ -1,12 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 /* eslint-disable */
-
-/* import 'bootstrap' */
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
-import {db, usersRef} from 'firebase';
-/* import './firebase'; */
+import {db, usersRef} from './firebase.js';
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Main from "./Main.vue";
@@ -31,8 +28,5 @@ new Vue({
   el: "#app",
   router: router,
   components: { Main, Home, OtherStuff },
-  template: "<Main/>"/* ,
-  firebase: {
-    users: usersRef
-  } */
+  template: "<Main/>"
 });
