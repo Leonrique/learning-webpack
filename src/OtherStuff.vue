@@ -1,6 +1,6 @@
 <template>
     <div id="OtherStuff">
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-6">
           <ul is="transition-group">
             <li v-for="user in users" class="user" :key="user['.key']">
@@ -18,13 +18,13 @@
             <li v-show="!validation.email">Please provide a valid email address.</li>
           </ul>
         </div>
-      </div>
+      </div> -->
     </div>
 </template>
 <script>
 /* eslint-disable */
 /* import {db, usersRef} from './firebase'; */
-import "bootstrap/dist/css/bootstrap.css";
+/* import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
 var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
@@ -39,7 +39,7 @@ var config = {
 const firebaseApp  = firebase.initializeApp(config);
 
 export const db = firebaseApp.database();
-export const usersRef = firebaseApp.database().ref('users');
+export const usersRef = firebaseApp.database().ref('users'); */
 
 export default {
   name: "OtherStuff",
@@ -50,14 +50,11 @@ export default {
         email: ''
       }
     }
-  },
-  // firebase binding
-  // https://github.com/vuejs/vuefire
+  }/* ,
    firebase: {
     users: usersRef
   },
-  // computed property for form validation state
-   computed: {
+  computed: {
     validation: function () {
       return {
         name: !!this.newUser.name.trim(),
@@ -71,7 +68,6 @@ export default {
       })
     }
   },
-  // methods
   methods: {
     addUser: function () {
       if (this.isValid) {
@@ -83,8 +79,8 @@ export default {
     removeUser: function (user) {
       usersRef.child(user['.key']).remove()
     }
-  }, 
-  components: {}
+  },  */
+  ,components: {}
 };
 </script>
 
