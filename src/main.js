@@ -5,13 +5,17 @@
 /* import 'bootstrap' */
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
+import {db, usersRef} from './firebase';
+/* import './firebase'; */
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Main from "./Main.vue";
 import Home from "./Home.vue";
 import OtherStuff from "./OtherStuff.vue";
+import VueFire from "vuefire"
 
 Vue.use(VueRouter);
+Vue.use(VueFire);
 Vue.config.productionTip = false;
 
 const routes = [
@@ -27,5 +31,8 @@ new Vue({
   el: "#app",
   router: router,
   components: { Main, Home, OtherStuff },
-  template: "<Main/>"
+  template: "<Main/>"/* ,
+  firebase: {
+    users: usersRef
+  } */
 });
