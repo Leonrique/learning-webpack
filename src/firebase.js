@@ -1,5 +1,5 @@
 /* eslint-disable */
-import Firebase from 'firebase'
+import firebase from 'firebase';
 
 var config = {
   apiKey: "AIzaSyDE15LTniiNFiEAAIhcXCZw3kqmULI6zVU",
@@ -7,7 +7,7 @@ var config = {
     databaseURL: "https://fir-vue-dad27.firebaseio.com"
 }
 
-const firebaseApp  = Firebase.initializeApp(config)
+const firebaseApp  = firebase.initializeApp(config);
 
 export const db = firebaseApp.database();
-export const usersRef = firebaseApp.database().ref('users')
+export const usersRef = firebaseApp.database().ref('users');
