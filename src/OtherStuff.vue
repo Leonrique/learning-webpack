@@ -1,5 +1,7 @@
+/* eslint-disable */
 <template>
-    <div id="OtherStuff">
+    <div >
+      <Header/>
       <div class="row">
         <div class="col-md-6">
           <ul is="transition-group">
@@ -24,26 +26,28 @@
 <script>
 /* eslint-disable */
 /* import {db, usersRef} from './firebase'; */
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
+/* import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js' */
+import Header from './components/Header.vue'
 
 var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-import firebase from 'firebase';
+import firebase from 'firebase'
 
 var config = {
-  apiKey: "AIzaSyDE15LTniiNFiEAAIhcXCZw3kqmULI6zVU",
-    authDomain: "fir-vue-dad27.firebaseapp.com",
-    databaseURL: "https://fir-vue-dad27.firebaseio.com"
+  apiKey: 'AIzaSyDE15LTniiNFiEAAIhcXCZw3kqmULI6zVU',
+  authDomain: 'fir-vue-dad27.firebaseapp.com',
+  databaseURL: 'https://fir-vue-dad27.firebaseio.com'
 }
 
-const firebaseApp  = firebase.initializeApp(config);
+const firebaseApp = firebase.initializeApp(config)
 
-export const db = firebaseApp.database();
-export const usersRef = firebaseApp.database().ref('users'); 
+export const db = firebaseApp.database()
+export const usersRef = firebaseApp.database().ref('users')
 
 export default {
-  name: "OtherStuff",
+  name: 'OtherStuff',
+  components: { Header },
   data: function() {
     return {
       newUser: {
@@ -52,37 +56,45 @@ export default {
       }
     }
   },
-   firebase: {
+  firebase: {
     users: usersRef
   },
   computed: {
-    validation: function () {
+    validation: function() {
       return {
         name: !!this.newUser.name.trim(),
         email: emailRE.test(this.newUser.email)
       }
     },
-    isValid: function () {
+    isValid: function() {
       var validation = this.validation
-      return Object.keys(validation).every(function (key) {
+      return Object.keys(validation).every(function(key) {
         return validation[key]
       })
     }
   },
   methods: {
-    addUser: function () {
+    addUser: function() {
       if (this.isValid) {
-        usersRef.push(this.newUser)
+        var doisUsers = [this.newUser, this.newUser]
+        usersRef.push(doisUsers)
+
+        var pessoa = {
+          nome: 'leon',
+          sobreNome: 'Oliveira',
+          cidadeEmQueNasceu: 'Goaiania'
+        }
+        usersRef.push(pessoa)
+
         this.newUser.name = ''
         this.newUser.email = ''
       }
     },
-    removeUser: function (user) {
+    removeUser: function(user) {
       usersRef.child(user['.key']).remove()
     }
-  }, 
-  components: {}
-};
+  }
+}
 </script>
 
 <style scoped>
@@ -95,7 +107,6 @@ ul {
 }
 
 input {
-  
   margin: 5px;
 }
 
@@ -105,14 +116,15 @@ input {
   padding: 10px;
   border-top: 1px solid #eee;
   overflow: hidden;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 .user:last-child {
   border-bottom: 1px solid #eee;
 }
 
-.v-enter, .v-leave-active {
+.v-enter,
+.v-leave-active {
   height: 0;
   padding-top: 0;
   padding-bottom: 0;

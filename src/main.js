@@ -1,32 +1,34 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 /* eslint-disable */
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
-import Vue from "vue";
-import VueRouter from "vue-router";
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 //import VueFire from "vuefire"
 var VueFire = require('vuefire')
-import Main from "./Main.vue"
-import Home from "./Home.vue";
-import OtherStuff from "./OtherStuff.vue";
+import Main from './Main.vue'
+import Home from './Home.vue'
+import OtherStuff from './OtherStuff.vue'
+import Sorter from './pages/Sorter.vue'
 
-Vue.use(VueRouter);
-Vue.use(VueFire);
-Vue.config.productionTip = false;
+Vue.use(VueRouter)
+Vue.use(VueFire)
+Vue.config.productionTip = false
 
 const routes = [
-  { path: "/", component: Home, name:"Home" },
-  { path: "/acao", component: OtherStuff, name:"OtherStuff" }
-];
+  { path: '/', component: Home, name: 'Home' },
+  { path: '/acao', component: OtherStuff, name: 'OtherStuff' },
+  { path: '/sorter', component: Sorter, name: 'Sorter' }
+]
 
 const router = new VueRouter({
   routes: routes
-});
+})
 
 new Vue({
-  el: "#app",
+  el: '#app',
   router: router,
   components: { Main, Home, OtherStuff },
-  template: "<Main/>"
-});
+  template: '<Main/>'
+})

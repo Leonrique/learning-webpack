@@ -1,10 +1,9 @@
+/* eslint-disable */
 <template>
     <div id="home">
-      <h1>Home</h1>
       <Header/>
-
+      <h1>Home</h1>
       <img src="./assets/logo.png">
-
       <HelloWorld/>
       <br>
       <Greeting/>
@@ -22,10 +21,10 @@ import Header from "./components/Header.vue";
 
 export default {
   name: "Home",
-  data: function(){
+  data: function() {
     return {
       showModal: false
-    }
+    };
   },
   components: {
     HelloWorld,

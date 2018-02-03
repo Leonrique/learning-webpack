@@ -68,6 +68,8 @@
                   <p>{{ value }}</p>
               </div>
         </div>
+        <div class="barraDeProgresso" :style="{'background-Color': color, 'width': tamanho + 'px'}"></div>
+        <button @click="atualizarBarra">Acao de barra de rolagem</button>
    </div>
 </template>
 
@@ -78,6 +80,8 @@ export default {
   name: "Greeting",
   data() {
     return {
+      color: "red",
+      tamanho: 10,
       title: "Just workin' fine",
       resultado: 0,
       resultado2: 0,
@@ -131,6 +135,14 @@ export default {
   },
 
   methods: {
+    atualizarBarra: function() {
+      var vm = this;
+      setInterval(function() {
+        if (vm.tamanho <= 1500) {
+          vm.tamanho += 10;
+        }
+      }, 50);
+    },
     adicionarValor: function() {
       let valor = document.getElementById("inputIntervalo").value;
 
@@ -219,8 +231,9 @@ export default {
   background-color: rgb(144, 190, 165);
 }
 
-/* #divFormGroup label {
-  display: block;
-  text-align: left;
-} */
+.barraDeProgresso {
+  width: 10px;
+  background-color: brown;
+  height: 10px;
+}
 </style>
