@@ -20,69 +20,67 @@
 
 <script>
 /* eslint-disable */
-/* import 'bootstrap' */
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js'
 import Header from '../components/Header.vue'
 export default {
-  name: 'Sorter',
-  components: { Header },
-  data: function() {
-    return {
-      itemSorteado: '',
-      itensParaSortear: '',
-      tipoSeparador: '',
-      virgula: false,
-      pontoVirgula: false
-    }
-  },
-  watch: {
-    virgula: function() {
-      this.tipoSeparador = ','
-    },
-    pontoVirgula: function() {
-      this.tipoSeparador = ';'
-    }
-  },
-  methods: {
-    sortear: function() {
-      if (this.tipoSeparador == '') {
-        alert('Selecione um tipo de separador de itens.')
-        return
+   name: 'Sorter',
+   components: { Header },
+   data: function() {
+      return {
+         itemSorteado: '',
+         itensParaSortear: '',
+         tipoSeparador: '',
+         virgula: false,
+         pontoVirgula: false
       }
-
-      if (this.itensParaSortear == '') {
-        alert('Insira itens para fazer o sorteio.')
-        return
+   },
+   watch: {
+      virgula: function() {
+         this.tipoSeparador = ','
+      },
+      pontoVirgula: function() {
+         this.tipoSeparador = ';'
       }
+   },
+   methods: {
+      sortear: function() {
+         if (this.tipoSeparador == '') {
+            alert('Selecione um tipo de separador de itens.')
+            return
+         }
 
-      var vm = this
+         if (this.itensParaSortear == '') {
+            alert('Insira itens para fazer o sorteio.')
+            return
+         }
 
-      var itens = this.itensParaSortear.split(this.tipoSeparador)
-      var qtde = itens.length
-      var max = 0
-      var min = 0
-      max = qtde - 1
-      var tempo = new Date().getTime() / 1000
+         var vm = this
 
-      setInterval(function() {
-        if (new Date().getTime() / 1000 - tempo <= 3)
-          vm.itemSorteado = itens[Math.round(Math.random() * (max - min) + min)]
-      }, 100)
-    }
-  }
+         var itens = this.itensParaSortear.split(this.tipoSeparador)
+         var qtde = itens.length
+         var max = 0
+         var min = 0
+         max = qtde - 1
+         var tempo = new Date().getTime() / 1000
+
+         setInterval(function() {
+            if (new Date().getTime() / 1000 - tempo <= 3)
+               vm.itemSorteado =
+                  itens[Math.round(Math.random() * (max - min) + min)]
+         }, 100)
+      }
+   }
 }
 </script>
 
 <style scoped>
 .container {
-  width: 100%;
+   width: 100%;
 }
 
 input,
 label,
 button,
 textarea {
-  margin: 4px;
+   margin: 4px;
 }
 </style>

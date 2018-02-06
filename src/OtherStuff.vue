@@ -25,14 +25,12 @@
 </template>
 <script>
 /* eslint-disable */
-/* import {db, usersRef} from './firebase'; */
-/* import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/js/bootstrap.js' */
+import { db, usersRef } from './firebase'
 import Header from './components/Header.vue'
 
 var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-import firebase from 'firebase'
+/* import firebase from 'firebase'
 
 var config = {
   apiKey: 'AIzaSyDE15LTniiNFiEAAIhcXCZw3kqmULI6zVU',
@@ -43,96 +41,96 @@ var config = {
 const firebaseApp = firebase.initializeApp(config)
 
 export const db = firebaseApp.database()
-export const usersRef = firebaseApp.database().ref('users')
+export const usersRef = firebaseApp.database().ref('users') */
 
 export default {
-  name: 'OtherStuff',
-  components: { Header },
-  data: function() {
-    return {
-      newUser: {
-        name: '',
-        email: ''
-      }
-    }
-  },
-  firebase: {
-    users: usersRef
-  },
-  computed: {
-    validation: function() {
+   name: 'OtherStuff',
+   components: { Header },
+   data: function() {
       return {
-        name: !!this.newUser.name.trim(),
-        email: emailRE.test(this.newUser.email)
+         newUser: {
+            name: '',
+            email: ''
+         }
       }
-    },
-    isValid: function() {
-      var validation = this.validation
-      return Object.keys(validation).every(function(key) {
-        return validation[key]
-      })
-    }
-  },
-  methods: {
-    addUser: function() {
-      if (this.isValid) {
-        var doisUsers = [this.newUser, this.newUser]
-        usersRef.push(doisUsers)
-
-        var pessoa = {
-          nome: 'leon',
-          sobreNome: 'Oliveira',
-          cidadeEmQueNasceu: 'Goaiania'
-        }
-        usersRef.push(pessoa)
-
-        this.newUser.name = ''
-        this.newUser.email = ''
+   },
+   firebase: {
+      users: usersRef
+   },
+   computed: {
+      validation: function() {
+         return {
+            name: !!this.newUser.name.trim(),
+            email: emailRE.test(this.newUser.email)
+         }
+      },
+      isValid: function() {
+         var validation = this.validation
+         return Object.keys(validation).every(function(key) {
+            return validation[key]
+         })
       }
-    },
-    removeUser: function(user) {
-      usersRef.child(user['.key']).remove()
-    }
-  }
+   },
+   methods: {
+      addUser: function() {
+         if (this.isValid) {
+            var doisUsers = [this.newUser, this.newUser]
+            usersRef.push(doisUsers)
+
+            var pessoa = {
+               nome: 'leon',
+               sobreNome: 'Oliveira',
+               cidadeEmQueNasceu: 'Goaiania'
+            }
+            usersRef.push(pessoa)
+
+            this.newUser.name = ''
+            this.newUser.email = ''
+         }
+      },
+      removeUser: function(user) {
+         usersRef.child(user['.key']).remove()
+      }
+   }
 }
 </script>
 
 <style scoped>
 #OtherStuff {
-  text-align: center;
+   text-align: center;
 }
 
 ul {
-  padding: 0;
+   padding: 0;
 }
 
 input {
-  margin: 5px;
+   margin: 5px;
 }
 
 .user {
-  height: 50px;
-  line-height: 30px;
-  padding: 10px;
-  border-top: 1px solid #eee;
-  overflow: hidden;
-  transition: all 0.25s ease;
+   height: 50px;
+   line-height: 30px;
+   padding: 10px;
+   border-top: 1px solid #eee;
+   overflow: hidden;
+   transition: all 0.25s ease;
 }
 
 .user:last-child {
-  border-bottom: 1px solid #eee;
+   border-bottom: 1px solid #eee;
 }
 
 .v-enter,
 .v-leave-active {
-  height: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  border-top-width: 0;
-  border-bottom-width: 0;
+   height: 0;
+   padding-top: 0;
+   padding-bottom: 0;
+   border-top-width: 0;
+   border-bottom-width: 0;
 }
 
 .errors {
-  color: #f00;
+   color: #f00;
 }
 </style>
