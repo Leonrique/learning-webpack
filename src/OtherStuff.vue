@@ -3,7 +3,7 @@
     <div >
       <Header/>
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <ul is="transition-group">
             <li v-for="user in users" class="user" :key="user['.key']">
               <span>{{user.name}} - {{user.email}}</span>
@@ -29,19 +29,6 @@ import { db, usersRef } from './firebase'
 import Header from './components/Header.vue'
 
 var emailRE = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-
-/* import firebase from 'firebase'
-
-var config = {
-  apiKey: 'AIzaSyDE15LTniiNFiEAAIhcXCZw3kqmULI6zVU',
-  authDomain: 'fir-vue-dad27.firebaseapp.com',
-  databaseURL: 'https://fir-vue-dad27.firebaseio.com'
-}
-
-const firebaseApp = firebase.initializeApp(config)
-
-export const db = firebaseApp.database()
-export const usersRef = firebaseApp.database().ref('users') */
 
 export default {
    name: 'OtherStuff',
