@@ -44,6 +44,9 @@ export default {
    firebase: {
       users: usersRef
    },
+   mounted() {
+      console.log(this.users)
+   },
    computed: {
       validation: function() {
          return {
@@ -61,15 +64,14 @@ export default {
    methods: {
       addUser: function() {
          if (this.isValid) {
-            var doisUsers = [this.newUser, this.newUser]
-            usersRef.push(doisUsers)
+            usersRef.push(this.newUser)
 
-            var pessoa = {
+            /* var pessoa = {
                nome: 'leon',
                sobreNome: 'Oliveira',
                cidadeEmQueNasceu: 'Goaiania'
             }
-            usersRef.push(pessoa)
+            usersRef.push(pessoa) */
 
             this.newUser.name = ''
             this.newUser.email = ''
