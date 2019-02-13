@@ -29,7 +29,7 @@ export default {
    },
    computed: {
       materiais: function() {
-         return this.$store.getters.materiais
+         return this.$store.getters.novosMateriais
       }
    }
 }

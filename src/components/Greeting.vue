@@ -4,7 +4,7 @@
    <div id="treinamento">
         <h1 v-once>{{ title }}</h1>
         <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }}
-          - <span v-on:mousemove.stop="">ZONA MORTA</span>
+          - <span v-on:mousemove.stop>ZONA MORTA</span>
         </p>
         <div class="row">
             <div class="col-md-3">
@@ -77,163 +77,167 @@
 /* eslint-disable*/
 /* eslint-disable-next-line */
 export default {
-  name: "Greeting",
-  data() {
-    return {
-      color: "red",
-      tamanho: 10,
-      title: "Just workin' fine",
-      resultado: 0,
-      resultado2: 0,
-      link: "http://www.google.com",
-      finishedLink:
-        '<a href="' + "http://www.google.com" + '">Google finished link</a>',
-      counter: 0,
-      x: 0,
-      y: 0,
-      a: 0,
-      b: 0,
-      age: 5,
-      numero1: 0,
-      numero2: 0,
-      numero3: 0,
-      numeroRandom: 0,
-      contarNumero1: null,
-      contarNumero2: null,
-      contarNumero3: null,
-      value: 0,
-      interval: null
-    };
-  },
-  computed: {
-    result: function() {
-      return this.value != 37 ? "Not there yet" : "It reached the target!!!";
-    }
-  },
-  watch: {
-    a: function() {
-      var vm = this;
-      setInterval(function() {
-        vm.resultado2 += vm.a;
-      }, 2000);
-    },
-    b: function() {
-      var vm = this;
-      setInterval(function() {
-        vm.resultado2 += vm.b;
-      }, 2000);
-    },
-    value: function() {
-      var vm = this;
-
-      clearInterval(this.interval);
-
-      this.interval = setTimeout(() => {
-        vm.value = 0;
-      }, 5000);
-    }
-  },
-
-  methods: {
-    atualizarBarra: function() {
-      var vm = this;
-      setInterval(function() {
-        if (vm.tamanho <= 1500) {
-          vm.tamanho += 10;
-        }
-      }, 50);
-    },
-    adicionarValor: function() {
-      let valor = document.getElementById("inputIntervalo").value;
-
-      if (valor == 0) {
-        alert("Não foi definido a quantidade de segundos para zerar o valor.");
-        document.getElementById("inputIntervalo").focus();
-        return;
+   name: 'Greeting',
+   data() {
+      return {
+         color: 'red',
+         tamanho: 10,
+         title: "Just workin' fine",
+         resultado: 0,
+         resultado2: 0,
+         link: 'http://www.google.com',
+         finishedLink:
+            '<a href="' +
+            'http://www.google.com' +
+            '">Google finished link</a>',
+         counter: 0,
+         x: 0,
+         y: 0,
+         a: 0,
+         b: 0,
+         age: 5,
+         numero1: 0,
+         numero2: 0,
+         numero3: 0,
+         numeroRandom: 0,
+         contarNumero1: null,
+         contarNumero2: null,
+         contarNumero3: null,
+         value: 0,
+         interval: null
       }
-
-      this.value += parseFloat(valor);
-    },
-    numeroRandomico: function getRandomArbitrary(min, max) {
-      this.numeroRandom = Math.round(Math.random() * (max - min) + min);
-    },
-    iniciaContagem: function() {
-      var vm = this;
-      this.contarNumero1 = setInterval(function() {
-        vm.numero1 += 1;
-      }, 20);
-
-      this.contarNumero2 = setInterval(function() {
-        vm.numero2 += 1;
-      }, 30);
-
-      this.contarNumero3 = setInterval(function() {
-        vm.numero3 += 1;
-      }, 40);
-    },
-    pararContagem() {
-      clearInterval(this.contarNumero1);
-      clearInterval(this.contarNumero2);
-      clearInterval(this.contarNumero3);
-      clearInterval(this.iniciaContagem);
-    },
-    AddToA: function() {
-      return this.a++;
-      console.log("increaseA");
-    },
-    AddToB: function() {
-      return this.b++;
-      console.log("increaseB");
-    },
-    alertMe() {
-      alert("Isso foi um alerta.");
-    },
-
-    updateCoordinates: function(e) {
-      this.x = e.clientX;
-      this.y = e.clientY;
-    },
-
-    changeTitle: function(e) {
-      if (e.target.value == "0") {
-        this.title = "Tudo foi limpo";
-      } else {
-        this.title = e.target.value;
+   },
+   computed: {
+      result: function() {
+         return this.value != 37 ? 'Not there yet' : 'It reached the target!!!'
       }
-    },
+   },
+   watch: {
+      a: function() {
+         var vm = this
+         setInterval(function() {
+            vm.resultado2 += vm.a
+         }, 2000)
+      },
+      b: function() {
+         var vm = this
+         setInterval(function() {
+            vm.resultado2 += vm.b
+         }, 2000)
+      },
+      value: function() {
+         var vm = this
 
-    somaSimples: function() {
-      var input1 = document.getElementById("input1").value;
-      var input2 = document.getElementById("input2").value;
+         clearInterval(this.interval)
 
-      this.resultado = parseFloat(input1) + parseFloat(input2);
-      this.title = "I'm still workin' fine";
-    },
+         this.interval = setTimeout(() => {
+            vm.value = 0
+         }, 5000)
+      }
+   },
 
-    changeLink: function(e) {
-      var divLink = document.getElementById("divLink");
-      var link = '"http://www.' + e.target.value + '.com.br"';
+   methods: {
+      atualizarBarra: function() {
+         var vm = this
+         setInterval(function() {
+            if (vm.tamanho <= 1500) {
+               vm.tamanho += 10
+            }
+         }, 50)
+      },
+      adicionarValor: function() {
+         let valor = document.getElementById('inputIntervalo').value
 
-      this.finishedLink = "<a href=" + link + ">Google finished link</a>";
-    },
+         if (valor == 0) {
+            alert(
+               'Não foi definido a quantidade de segundos para zerar o valor.'
+            )
+            document.getElementById('inputIntervalo').focus()
+            return
+         }
 
-    increase: function() {
-      this.counter++;
-    }
-  }
-};
+         this.value += parseFloat(valor)
+      },
+      numeroRandomico: function getRandomArbitrary(min, max) {
+         this.numeroRandom = Math.round(Math.random() * (max - min) + min)
+      },
+      iniciaContagem: function() {
+         var vm = this
+         this.contarNumero1 = setInterval(function() {
+            vm.numero1 += 1
+         }, 20)
+
+         this.contarNumero2 = setInterval(function() {
+            vm.numero2 += 1
+         }, 30)
+
+         this.contarNumero3 = setInterval(function() {
+            vm.numero3 += 1
+         }, 40)
+      },
+      pararContagem() {
+         clearInterval(this.contarNumero1)
+         clearInterval(this.contarNumero2)
+         clearInterval(this.contarNumero3)
+         clearInterval(this.iniciaContagem)
+      },
+      AddToA: function() {
+         return this.a++
+         console.log('increaseA')
+      },
+      AddToB: function() {
+         return this.b++
+         console.log('increaseB')
+      },
+      alertMe() {
+         alert('Isso foi um alerta.')
+      },
+
+      updateCoordinates: function(e) {
+         this.x = e.clientX
+         this.y = e.clientY
+      },
+
+      changeTitle: function(e) {
+         if (e.target.value == '0') {
+            this.title = 'Tudo foi limpo'
+         } else {
+            this.title = e.target.value
+         }
+      },
+
+      somaSimples: function() {
+         var input1 = document.getElementById('input1').value
+         var input2 = document.getElementById('input2').value
+
+         this.resultado = parseFloat(input1) + parseFloat(input2)
+         this.title = "I'm still workin' fine"
+      },
+
+      changeLink: function(e) {
+         var divLink = document.getElementById('divLink')
+         var link = '"http://www.' + e.target.value + '.com.br"'
+
+         this.finishedLink = '<a href=' + link + '>Google finished link</a>'
+      },
+
+      increase: function() {
+         this.counter++
+      }
+   }
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 #container {
-  width: 500px;
-  background-color: rgb(144, 190, 165);
+   width: 500px;
+   background-color: rgb(144, 190, 165);
 }
 
 .barraDeProgresso {
-  width: 10px;
-  background-color: brown;
-  height: 10px;
+   width: 10px;
+   background-color: brown;
+   height: 10px;
 }
 </style>
